@@ -97,6 +97,10 @@ Start backend server:
 npm run server
 
 3️⃣ Frontend Setup
+.env
+VITE_CURRENCY="₹"
+VITE_BACKEND_URL="http://localhost:4000"
+
 cd client
 npm install
 npm run dev
