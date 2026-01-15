@@ -1,0 +1,32 @@
+<svg
+  width="180"
+  height="40"
+  viewBox="0 0 180 40"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <!-- Icon -->
+  <g transform="translate(0,4)">
+    <rect x="0" y="6" rx="6" ry="6" width="28" height="20" fill="#e529df"/>
+    <path
+      d="M8 12c4 0 6 4 10 4"
+      stroke="#fff"
+      stroke-width="2"
+      fill="none"
+      stroke-linecap="round"
+    />
+    <circle cx="10" cy="20" r="2" fill="#fff"/>
+  </g>
+
+  <!-- Text -->
+  <text
+    x="40"
+    y="26"
+    font-family="Poppins, Arial, sans-serif"
+    font-size="20"
+    font-weight="600"
+    fill="#111827"
+  >
+    swad
+    <tspan fill="#e529df" font-weight="700"> express</tspan>
+  </text>
+</svg>
