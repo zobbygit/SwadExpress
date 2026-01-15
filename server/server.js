@@ -17,7 +17,7 @@ const port=process.env.PORT || 4000
 
 await connectDB()
 await connectCloudinary()
-const allowedOrigin=['http://localhost:5173']
+const allowedOrigin=['http://localhost:5173','https://swad-express-ruddy.vercel.app']
 app.post('/stripe',express.raw({type:'application/json'}),stripeWebhooks)
 
 app.use(express.json())
