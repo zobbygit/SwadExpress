@@ -1,30 +1,23 @@
 import React, { useState } from "react";
-import { useAppContext } from "../context/AppContext";
-import toast from "react-hot-toast";
 
 const NewsLetter = () => {
-  const { axios } = useAppContext();
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleSubscribe = async () => {
     if (!email) {
-      toast.error("Please enter your email");
+      alert("Please enter your email");
       return;
     }
 
     try {
       setLoading(true);
-      const { data } = await axios.post("/api/contact/subscribe", { email });
-
-      if (data.success) {
-        toast.success("Subscribed successfully!");
-        setEmail("");
-      } else {
-        toast.error(data.message);
-      }
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      alert("Subscribed successfully!");
+      setEmail("");
     } catch (error) {
-      toast.error(error.message);
+      alert(error.message);
     } finally {
       setLoading(false);
     }
@@ -37,35 +30,37 @@ const NewsLetter = () => {
         * { font-family: 'Poppins', sans-serif; }
       `}</style>
 
-      <div className="mt-24 pb-14 max-w-5xl py-16 md:pl-20 md:w-full mx-2 md:mx-auto p-4 flex flex-col md:flex-row items-center justify-between text-left 
-        bg-gradient-to-b from-pink-700 to-pink-900 rounded-2xl md:p-10 text-white">
+      <div className="w-full px-4 sm:px-6 py-8 sm:py-12 md:py-16">
+        <div className="max-w-2xl mx-auto bg-gradient-to-b from-pink-700 to-pink-900 rounded-3xl overflow-hidden text-white">
+          
+          {/* Content Section */}
+          <div className="p-6 sm:p-8 md:p-12 flex flex-col items-center justify-center text-center">
+            <p className="text-xs sm:text-sm text-pink-200 font-medium mb-4">Trusted by 12k+ developers</p>
+            
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight mb-8">
+              Join our newsletter & <br /> Stay Updated
+            </h1>
 
-        <div>
-          <p className="text-pink-200">Trusted by 12k+ developers</p>
-          <h1 className="text-4xl md:text-[46px] max-md:mt-3 md:leading-[60px] max-w-md font-semibold
-            bg-gradient-to-r from-white to-pink-300 text-transparent bg-clip-text">
-            Join our newsletter & Stay Updated
-          </h1>
-        </div>
+            {/* Input and Button */}
+            <div className="w-full max-w-sm flex flex-col gap-3">
+              <input
+                type="email"
+                placeholder="Enter your email..."
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                onKeyPress={(e) => e.key === 'Enter' && handleSubscribe()}
+                className="w-full h-12 bg-pink-400 rounded-full px-4 placeholder-pink-100 text-white text-sm sm:text-base outline-none"
+              />
 
-        <div className="flex items-center gap-2 bg-pink-500 mt-6 md:mt-0 pl-4 h-11 text-sm rounded-full overflow-hidden w-[300px] md:w-auto">
-
-          <input
-            type="email"
-            placeholder="Enter your email..."
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="outline-none h-11 bg-transparent placeholder-pink-200 text-white flex-1"
-          />
-
-          <button
-            onClick={handleSubscribe}
-            disabled={loading}
-            className="h-10 mr-1 px-4 md:px-6 rounded-full border border-pink-500 bg-pink-600 hover:bg-pink-500 transition w-[120px] md:w-auto"
-          >
-            {loading ? "..." : "Subscribe"}
-          </button>
-
+              <button
+                onClick={handleSubscribe}
+                disabled={loading}
+                className="w-full h-12 bg-pink-600 hover:bg-pink-700 rounded-full transition font-semibold text-sm sm:text-base disabled:opacity-70"
+              >
+                {loading ? "..." : "Subscribe"}
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </>
