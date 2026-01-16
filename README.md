@@ -1,6 +1,3 @@
-# SwadExpress
-SwadExpress is your one-stop online store for quality groceries, bakery items, beverages, and more, delivered quickly with care and convenience.
-
 # 🍔 Swad Express – Full Stack Food Ordering Platform
 
 Swad Express is a modern and feature-rich full-stack food ordering web application built using the **MERN stack**. It provides a smooth shopping experience for users, a powerful dashboard for sellers, secure online payments, real-time cart updates, and a beautiful UI.
@@ -185,5 +182,4 @@ This project is open-source and free to use.
 Happy Coding 🚀
 
 
-## 📂 Project Structure
 
